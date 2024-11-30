@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import FaveJokes from './components/FaveJokes';
+import SearchJokes from './components/SearchJokes';
 
 /**
   Objective: 
@@ -17,18 +19,33 @@ import './App.css';
 */
 
 function App() {
+
+  const [activeComponent, setActiveComponent] = useState("fave");
+
+  const handleClick = (value) => {
+    setActiveComponent(value);
+  }
+
+  const renderComponent = () => {
+    switch(activeComponent) {
+      case "fave":
+        return <FaveJokes />
+      case "search":
+        return <SearchJokes />
+      default:
+        return <FaveJokes />
+    }
+  }
+
   return (
-    <main style={{
-      padding: "24px"
-    }}>
+    <main>
       <h1>Dad Jokes!</h1>
-      <div style={{
-        display: "flex",
-        gap: "8px"
-      }}>
-        <button>Give me a joke</button>
-        <button>Search Joke</button>
+      <div className="actions">
+        <button onClick={() => handleClick("fave")}>Give me a joke</button>
+        <button onClick={() => handleClick("search")}>Search Joke</button>
       </div>
+      <hr />
+      {renderComponent()}
     </main>
   );
 }
