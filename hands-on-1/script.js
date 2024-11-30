@@ -2,3 +2,19 @@ var ARROW = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="
 console.log(ARROW);
 
 // Insert function here that will create accordion
+function createAccordion() {
+  var accordionItems = document.querySelectorAll(".accordion-item");
+  accordionItems.forEach(function(item) {
+    var header = item.querySelector(".accordion-header")
+
+    // include the arrow
+    header.insertAdjacentHTML("beforeend", ARROW);
+
+    // toggle accordion, active to display content
+    item.querySelector(".accordion-button").addEventListener("click", function() {
+      item.classList.toggle("active"); 
+    });
+  });
+}
+
+createAccordion();

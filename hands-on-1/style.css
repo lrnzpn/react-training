@@ -1,3 +1,14 @@
-.active {
-  
+// simple way
+.accordion-container {}
+
+.accordion-content {
+  display: none;
+}
+
+.active .accordion-content {
+  display: block;
+}
+
+.active svg {
+  rotate: 180deg;
 }
