@@ -26,7 +26,7 @@ function App() {
         display: "flex",
         gap: "8px"
       }}>
-        <button>Generate Random Joke</button>
+        <button>Give me a joke</button>
         <button>Search Joke</button>
       </div>
     </main>
